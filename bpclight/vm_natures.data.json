@@ -1,0 +1,42 @@
+[
+    [
+        "1",
+        "Visite périodique"
+    ],
+    [
+        "2",
+        "Reprise congés maladie"
+    ],
+    [
+        "3",
+        "Demande du service"
+    ],
+    [
+        "4",
+        "Demande du médecin"
+    ],
+    [
+        "5",
+        "Visite quinquennale"
+    ],
+    [
+        "6",
+        "Visite annuelle"
+    ],
+    [
+        "7",
+        "Reprise congés maternité"
+    ],
+    [
+        "9",
+        "Demande de l'agent"
+    ],
+    [
+        "10",
+        "Visite reprise Accident du travail"
+    ],
+    [
+        "11",
+        "Visite d'embauche"
+    ]
+]

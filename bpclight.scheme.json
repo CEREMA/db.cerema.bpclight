@@ -1,0 +1,3355 @@
+{
+    "db": "bpclight2",
+    "tables": [
+        "activites",
+        "adresses",
+        "ageaut",
+        "ageautpers",
+        "agecode",
+        "ageetat",
+        "agents",
+        "ageperm",
+        "agepiece",
+        "agerol",
+        "annexes",
+        "batiments",
+        "catgrad",
+        "catperm",
+        "catpiece",
+        "contacts",
+        "docs",
+        "droit_consult",
+        "etablissements",
+        "familles",
+        "feries",
+        "gestion_droits",
+        "grades",
+        "hierarchie",
+        "historic",
+        "interim",
+        "medic_cat",
+        "medic_dossiers",
+        "medic_gen",
+        "medic_rdv",
+        "medic_type",
+        "mela",
+        "mele",
+        "mels",
+        "melu",
+        "melv",
+        "monblob",
+        "motif",
+        "mpaagent",
+        "param",
+        "param_droits",
+        "passeport",
+        "position",
+        "postal",
+        "recapitulatif",
+        "rolconsult",
+        "roles",
+        "sauvage",
+        "services",
+        "situadm",
+        "societes",
+        "srhmel",
+        "subdis",
+        "trombi",
+        "type_formation",
+        "unites",
+        "useannex",
+        "users",
+        "vehassu",
+        "vehmark",
+        "vehmod",
+        "versions",
+        "vm",
+        "vm_natures",
+        "vm_resultats"
+    ],
+    "table": {
+        "activites": {
+            "fields": [
+                "Kact",
+                "Kage",
+                "Kann",
+                "LibAct",
+                "ActLie",
+                "Verrou"
+            ],
+            "field": {
+                "Kact": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "Kann": {
+                    "required": true,
+                    "join": "annexes.Kann"
+                },
+                "LibAct": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "ActLie": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kact"
+        },
+        "adresses": {
+            "fields": [
+                "Kadr",
+                "Kpos",
+                "Kdep",
+                "Kpay",
+                "Adresse",
+                "Perso",
+                "Type",
+                "Verrou",
+                "Date_derniere_modif"
+            ],
+            "field": {
+                "Kadr": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kpos": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Kdep": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Kpay": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Adresse": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "Perso": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Type": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "Date_derniere_modif": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                }
+            },
+            "key": "Kadr"
+        },
+        "ageaut": {
+            "fields": [
+                "Kaat",
+                "Kpie",
+                "Ksig",
+                "DatAutV",
+                "DatDebV",
+                "DatFinV",
+                "NumAut",
+                "Verrou"
+            ],
+            "field": {
+                "Kaat": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kpie": {
+                    "required": true,
+                    "join": "agepiece.Kpie"
+                },
+                "Ksig": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "DatAutV": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "DatDebV": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "DatFinV": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "NumAut": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kaat"
+        },
+        "ageautpers": {
+            "fields": [
+                "Kaap",
+                "Kpie",
+                "Kvmk",
+                "Kvmd",
+                "Kvas",
+                "Ksig",
+                "DatAut",
+                "Ponct",
+                "Immat",
+                "NumPol",
+                "Zone",
+                "KmAut",
+                "KmAdd",
+                "DatDeb",
+                "DatFin",
+                "Verrou"
+            ],
+            "field": {
+                "Kaap": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kpie": {
+                    "required": true,
+                    "join": "agepiece.Kpie"
+                },
+                "Kvmk": {
+                    "required": true,
+                    "join": "vehmark.Kvmk"
+                },
+                "Kvmd": {
+                    "required": true,
+                    "join": "vehmod.Kvmd"
+                },
+                "Kvas": {
+                    "required": true,
+                    "join": "vehassu.Kvas"
+                },
+                "Ksig": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "DatAut": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "Ponct": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Immat": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "NumPol": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "Zone": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "KmAut": {
+                    "required": false,
+                    "type": "float",
+                    "dbtype": "double"
+                },
+                "KmAdd": {
+                    "required": false,
+                    "type": "float",
+                    "dbtype": "double"
+                },
+                "DatDeb": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "DatFin": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kaap"
+        },
+        "agecode": {
+            "fields": [
+                "Kcod",
+                "Kage",
+                "CodConf",
+                "CodChauf",
+                "Verrou"
+            ],
+            "field": {
+                "Kcod": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "CodConf": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(4)"
+                },
+                "CodChauf": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(4)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kcod"
+        },
+        "ageetat": {
+            "fields": [
+                "Keta",
+                "Kpst",
+                "Kage",
+                "Ketsnew",
+                "Kuninew",
+                "Ksubnew",
+                "Ksernew",
+                "Ketsex",
+                "Kuniex",
+                "Ksubex",
+                "Kserex",
+                "DatCre",
+                "Arrivee",
+                "Motif",
+                "DatEta",
+                "DatCPA",
+                "DatCFA",
+                "DatRet",
+                "PosFutur",
+                "Verrou"
+            ],
+            "field": {
+                "Keta": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kpst": {
+                    "required": true,
+                    "join": "position.Kpst"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "Ketsnew": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Kuninew": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Ksubnew": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Ksernew": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Ketsex": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Kuniex": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Ksubex": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Kserex": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "DatCre": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "Arrivee": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Motif": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "DatEta": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "DatCPA": {
+                    "required": false,
+                    "type": "date",
+                    "dbtype": "date"
+                },
+                "DatCFA": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "DatRet": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "PosFutur": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Keta"
+        },
+        "agents": {
+            "fields": [
+                "Kage",
+                "Kuni",
+                "Ksub",
+                "Kser",
+                "Kbat",
+                "Kgra",
+                "Kbur",
+                "Kres",
+                "Ksec",
+                "Nom",
+                "Prenom",
+                "Matri",
+                "DatCre",
+                "DatOuv",
+                "DatMod",
+                "DatClo",
+                "HorSect",
+                "CodHie",
+                "CodHor",
+                "LibHor",
+                "Telephone",
+                "Poste",
+                "Fax",
+                "Portable",
+                "Bureau",
+                "RoleDeta",
+                "DatMaj",
+                "DatNai",
+                "VilNai",
+                "DepNai",
+                "NomPre",
+                "Actif",
+                "IneTP",
+                "HSLabo",
+                "MissioLabo",
+                "LogUse",
+                "NumImmo",
+                "INSEE",
+                "Circe",
+                "PaysNai",
+                "Signat",
+                "Temptation",
+                "NumautCond",
+                "Autorise",
+                "INM",
+                "AgGesper",
+                "AgRe",
+                "AgRisques",
+                "Ksec2",
+                "REHUCIT",
+                "libelle_poste",
+                "dossier_d",
+                "dossier_r",
+                "libelle_doc",
+                "_BLOB"
+            ],
+            "field": {
+                "Kage": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kuni": {
+                    "required": true,
+                    "join": "unites.Kuni"
+                },
+                "Ksub": {
+                    "required": true,
+                    "join": "subdis.Ksub"
+                },
+                "Kser": {
+                    "required": true,
+                    "join": "services.Kser"
+                },
+                "Kbat": {
+                    "required": true,
+                    "join": "batiments.Kbat"
+                },
+                "Kgra": {
+                    "required": true,
+                    "join": "grades.Kgra"
+                },
+                "Kbur": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Kres": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Ksec": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Nom": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Prenom": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Matri": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(10)"
+                },
+                "DatCre": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "DatOuv": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "DatMod": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "DatClo": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "HorSect": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(10)"
+                },
+                "CodHie": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "smallint(6)"
+                },
+                "CodHor": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(6)"
+                },
+                "LibHor": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "Telephone": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Poste": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(10)"
+                },
+                "Fax": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Portable": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Bureau": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "RoleDeta": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "DatMaj": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "DatNai": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "VilNai": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "DepNai": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(5)"
+                },
+                "NomPre": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(30)"
+                },
+                "Actif": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "IneTP": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "smallint(6)"
+                },
+                "HSLabo": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "smallint(6)"
+                },
+                "MissioLabo": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "LogUse": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "NumImmo": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "INSEE": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(16)"
+                },
+                "Circe": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "PaysNai": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Signat": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Temptation": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "NumautCond": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Autorise": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "INM": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "char(5)"
+                },
+                "AgGesper": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(12)"
+                },
+                "AgRe": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "AgRisques": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Ksec2": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "REHUCIT": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "libelle_poste": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "dossier_d": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "dossier_r": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "libelle_doc": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "longblob"
+                },
+                "_BLOB": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                }
+            },
+            "key": "Kage"
+        },
+        "ageperm": {
+            "fields": [
+                "Kape",
+                "Kcpe",
+                "Kage",
+                "NumPerm",
+                "DatObt",
+                "Verrou"
+            ],
+            "field": {
+                "Kape": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kcpe": {
+                    "required": true,
+                    "join": "catperm.Kcpe"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "NumPerm": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "DatObt": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "blob"
+                }
+            },
+            "key": "Kape"
+        },
+        "agepiece": {
+            "fields": [
+                "Kpie",
+                "Kcpe",
+                "Kage",
+                "TypPie",
+                "NumPie",
+                "DatPie",
+                "DatVal",
+                "SignPie",
+                "Verrou"
+            ],
+            "field": {
+                "Kpie": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kcpe": {
+                    "required": true,
+                    "join": "catperm.Kcpe"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "TypPie": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "NumPie": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "DatPie": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "DatVal": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "SignPie": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kpie"
+        },
+        "agerol": {
+            "fields": [
+                "Kagr",
+                "Kage",
+                "Krol",
+                "Priorite",
+                "Verrou"
+            ],
+            "field": {
+                "Kagr": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "Krol": {
+                    "required": true,
+                    "join": "roles.Krol"
+                },
+                "Priorite": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kagr"
+        },
+        "annexes": {
+            "fields": [
+                "Kann",
+                "Krol",
+                "LibAnnc",
+                "LibAnn",
+                "Lie",
+                "Verrou"
+            ],
+            "field": {
+                "Kann": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Krol": {
+                    "required": true,
+                    "join": "roles.Krol"
+                },
+                "LibAnnc": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibAnn": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(200)"
+                },
+                "Lie": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kann"
+        },
+        "batiments": {
+            "fields": [
+                "Kbat",
+                "LibBatC",
+                "LibBat",
+                "Verrou",
+                "GPS"
+            ],
+            "field": {
+                "Kbat": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "LibBatC": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibBat": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                },
+                "GPS": {
+                    "required": true,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                }
+            },
+            "key": "Kbat"
+        },
+        "catgrad": {
+            "fields": [
+                "Kcgr",
+                "LibCgr",
+                "Verrou"
+            ],
+            "field": {
+                "Kcgr": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "LibCgr": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(150)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kcgr"
+        },
+        "catperm": {
+            "fields": [
+                "Kcpe",
+                "CatPerm",
+                "DefPerm",
+                "Verrou"
+            ],
+            "field": {
+                "Kcpe": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "CatPerm": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "char(10)"
+                },
+                "DefPerm": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kcpe"
+        },
+        "catpiece": {
+            "fields": [
+                "Kcpi",
+                "TypPiece",
+                "CatPiece",
+                "Verrou"
+            ],
+            "field": {
+                "Kcpi": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "TypPiece": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "CatPiece": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(150)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kcpi"
+        },
+        "contacts": {
+            "fields": [
+                "Kcon",
+                "Ksoc",
+                "Nom",
+                "Prenom",
+                "Mel",
+                "Telephone",
+                "Portable",
+                "Fax",
+                "Fonction",
+                "DatMaj",
+                "Verrou"
+            ],
+            "field": {
+                "Kcon": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Ksoc": {
+                    "required": true,
+                    "join": "societes.Ksoc"
+                },
+                "Nom": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "Prenom": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "Mel": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Telephone": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Portable": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Fax": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Fonction": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "DatMaj": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kcon"
+        },
+        "docs": {
+            "fields": [
+                "docId",
+                "_blob",
+                "filename",
+                "type",
+                "size"
+            ],
+            "field": {
+                "docId": {
+                    "required": true,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "_blob": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "filename": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "type": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "size": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                }
+            },
+            "key": "docId"
+        },
+        "droit_consult": {
+            "fields": [
+                "KConsult",
+                "CodeConsult",
+                "LibConsultC",
+                "LibConsult"
+            ],
+            "field": {
+                "KConsult": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "CodeConsult": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "LibConsultC": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "char(50)"
+                },
+                "LibConsult": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "char(50)"
+                }
+            },
+            "key": "KConsult"
+        },
+        "etablissements": {
+            "fields": [
+                "Kets",
+                "Kadr",
+                "LibEts",
+                "LibEtsC",
+                "Obs",
+                "etsGESPER",
+                "Archive"
+            ],
+            "field": {
+                "Kets": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kadr": {
+                    "required": true,
+                    "join": "adresses.Kadr"
+                },
+                "LibEts": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "text"
+                },
+                "LibEtsC": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "Obs": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "etsGESPER": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "Archive": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                }
+            },
+            "key": "Kets"
+        },
+        "familles": {
+            "fields": [
+                "Kfam",
+                "LibFam",
+                "Verrou"
+            ],
+            "field": {
+                "Kfam": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "LibFam": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kfam"
+        },
+        "feries": {
+            "fields": [
+                "Kfer",
+                "DateFerie",
+                "LibFerie",
+                "RTT",
+                "Verrou"
+            ],
+            "field": {
+                "Kfer": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "DateFerie": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "LibFerie": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "RTT": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kfer"
+        },
+        "gestion_droits": {
+            "fields": [
+                "Kdts",
+                "Kage",
+                "DtValid",
+                "DtConsultation"
+            ],
+            "field": {
+                "Kdts": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "DtValid": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "DtConsultation": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                }
+            },
+            "key": "Kdts"
+        },
+        "grades": {
+            "fields": [
+                "Kgra",
+                "Kcgr",
+                "LibGrac",
+                "LibGra",
+                "Gesper",
+                "Statut",
+                "CatFP",
+                "TechAdm",
+                "HSDroit",
+                "Verrou"
+            ],
+            "field": {
+                "Kgra": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kcgr": {
+                    "required": true,
+                    "join": "catgrad.Kcgr"
+                },
+                "LibGrac": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibGra": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Gesper": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Statut": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "CatFP": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "TechAdm": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "HSDroit": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                }
+            },
+            "key": "Kgra"
+        },
+        "hierarchie": {
+            "fields": [
+                "Khie",
+                "Kuni",
+                "Ksub",
+                "Kser",
+                "Kage",
+                "Krol",
+                "Verrou"
+            ],
+            "field": {
+                "Khie": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kuni": {
+                    "required": true,
+                    "join": "unites.Kuni"
+                },
+                "Ksub": {
+                    "required": true,
+                    "join": "subdis.Ksub"
+                },
+                "Kser": {
+                    "required": true,
+                    "join": "services.Kser"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "Krol": {
+                    "required": true,
+                    "join": "roles.Krol"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Khie"
+        },
+        "historic": {
+            "fields": [
+                "Khis",
+                "LogUse",
+                "LibHis",
+                "LibSubc",
+                "DatExe",
+                "TypExe",
+                "Verrou"
+            ],
+            "field": {
+                "Khis": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "LogUse": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibHis": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibSubc": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "DatExe": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "TypExe": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(3)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Khis"
+        },
+        "interim": {
+            "fields": [
+                "PID",
+                "AGENT",
+                "V1",
+                "V2"
+            ],
+            "field": {
+                "PID": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "AGENT": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "V1": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "V2": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                }
+            },
+            "key": "PID"
+        },
+        "medic_cat": {
+            "fields": [
+                "id",
+                "cat"
+            ],
+            "field": {
+                "id": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "cat": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                }
+            },
+            "key": "id"
+        },
+        "medic_dossiers": {
+            "fields": [
+                "id",
+                "Kage",
+                "poste_actuel",
+                "traitements",
+                "tabac",
+                "alcool",
+                "sport",
+                "orientations",
+                "conclusions",
+                "date",
+                "type",
+                "cat",
+                "Taille",
+                "Poids",
+                "Pouls",
+                "TA",
+                "TA_ORD",
+                "TA_ORG",
+                "clinique",
+                "vaccinations",
+                "TA_CORRECTION",
+                "TA_RQ",
+                "CVF",
+                "VEMS",
+                "VEMS_CVF",
+                "DEMM",
+                "TU",
+                "TU_RESULT",
+                "TV_OD",
+                "TV_OG",
+                "TV_CORRECTION",
+                "TV_RQ",
+                "TV_ANOMALIE",
+                "TV_STIGM",
+                "commentaires",
+                "_clinique"
+            ],
+            "field": {
+                "id": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "poste_actuel": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "text"
+                },
+                "traitements": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "text"
+                },
+                "tabac": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "alcool": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "sport": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "orientations": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "conclusions": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "date": {
+                    "required": false,
+                    "type": "date",
+                    "dbtype": "date"
+                },
+                "type": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "cat": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Taille": {
+                    "required": false,
+                    "type": "float",
+                    "dbtype": "float"
+                },
+                "Poids": {
+                    "required": false,
+                    "type": "float",
+                    "dbtype": "float"
+                },
+                "Pouls": {
+                    "required": false,
+                    "type": "float",
+                    "dbtype": "float"
+                },
+                "TA": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "TA_ORD": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "TA_ORG": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "clinique": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "vaccinations": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "text"
+                },
+                "TA_CORRECTION": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "TA_RQ": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "CVF": {
+                    "required": false,
+                    "type": "float",
+                    "dbtype": "float"
+                },
+                "VEMS": {
+                    "required": false,
+                    "type": "float",
+                    "dbtype": "float"
+                },
+                "VEMS_CVF": {
+                    "required": false,
+                    "type": "float",
+                    "dbtype": "float"
+                },
+                "DEMM": {
+                    "required": false,
+                    "type": "float",
+                    "dbtype": "float"
+                },
+                "TU": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "TU_RESULT": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "TV_OD": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(2)"
+                },
+                "TV_OG": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(2)"
+                },
+                "TV_CORRECTION": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "TV_RQ": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "TV_ANOMALIE": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "TV_STIGM": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "commentaires": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "_clinique": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                }
+            },
+            "key": "id"
+        },
+        "medic_gen": {
+            "fields": [
+                "kage",
+                "gen_perso",
+                "gen_family",
+                "gen_posterisque",
+                "gen_dossierrecu",
+                "gen_dossierdemande"
+            ],
+            "field": {
+                "kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "gen_perso": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "text"
+                },
+                "gen_family": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "text"
+                },
+                "gen_posterisque": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "gen_dossierrecu": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "gen_dossierdemande": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                }
+            },
+            "key": "kage"
+        },
+        "medic_rdv": {
+            "fields": [
+                "rdv_id",
+                "ResourceId",
+                "StartDate",
+                "EndDate",
+                "NextDate",
+                "Name",
+                "resultat",
+                "nature",
+                "kage",
+                "commentaires"
+            ],
+            "field": {
+                "rdv_id": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "ResourceId": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "StartDate": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "EndDate": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "NextDate": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "Name": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "resultat": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "nature": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "commentaires": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "text"
+                }
+            },
+            "key": "rdv_id"
+        },
+        "medic_type": {
+            "fields": [
+                "id",
+                "type"
+            ],
+            "field": {
+                "id": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "type": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                }
+            },
+            "key": "id"
+        },
+        "mela": {
+            "fields": [
+                "Kmela",
+                "Kage",
+                "LibMelA"
+            ],
+            "field": {
+                "Kmela": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "LibMelA": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                }
+            },
+            "key": "Kmela"
+        },
+        "mele": {
+            "fields": [
+                "Kmele",
+                "Kets",
+                "LibMelE"
+            ],
+            "field": {
+                "Kmele": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kets": {
+                    "required": true,
+                    "join": "etablissements.Kets"
+                },
+                "LibMelE": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                }
+            },
+            "key": "Kmele"
+        },
+        "mels": {
+            "fields": [
+                "Kmels",
+                "Ksub",
+                "LibMelS"
+            ],
+            "field": {
+                "Kmels": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Ksub": {
+                    "required": true,
+                    "join": "subdis.Ksub"
+                },
+                "LibMelS": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                }
+            },
+            "key": "Kmels"
+        },
+        "melu": {
+            "fields": [
+                "Kmelu",
+                "Kuni",
+                "LibMelU"
+            ],
+            "field": {
+                "Kmelu": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kuni": {
+                    "required": true,
+                    "join": "unites.Kuni"
+                },
+                "LibMelU": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                }
+            },
+            "key": "Kmelu"
+        },
+        "melv": {
+            "fields": [
+                "Kmelv",
+                "Kser",
+                "LibMelV"
+            ],
+            "field": {
+                "Kmelv": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kser": {
+                    "required": true,
+                    "join": "services.Kser"
+                },
+                "LibMelV": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                }
+            },
+            "key": "Kmelv"
+        },
+        "monblob": {
+            "fields": [
+                "id_blob",
+                "blob"
+            ],
+            "field": {
+                "id_blob": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "blob": {
+                    "required": true,
+                    "type": "blob",
+                    "dbtype": "blob"
+                }
+            },
+            "key": "id_blob"
+        },
+        "motif": {
+            "fields": [
+                "kmof",
+                "motif"
+            ],
+            "field": {
+                "kmof": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "motif": {
+                    "required": true,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                }
+            },
+            "key": "kmof"
+        },
+        "mpaagent": {
+            "fields": [
+                "id_MPA",
+                "Kage",
+                "idMPALOLF",
+                "quotite_MPA",
+                "debut_MPA",
+                "fin_MPA",
+                "delete_MPA"
+            ],
+            "field": {
+                "id_MPA": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "idMPALOLF": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "quotite_MPA": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "debut_MPA": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "fin_MPA": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "delete_MPA": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                }
+            },
+            "key": "id_MPA"
+        },
+        "param": {
+            "fields": [
+                "Kpar",
+                "SauvSource",
+                "ImagesCS",
+                "ImagesWeb",
+                "PhotosCS",
+                "PhotoWeb",
+                "TSource",
+                "TUser",
+                "TBDD",
+                "TPasse",
+                "TProprio",
+                "TAcces",
+                "TServer",
+                "RSource",
+                "RUser",
+                "RBDD",
+                "RPasse",
+                "RProprio",
+                "RAcces",
+                "RServer",
+                "Verrou"
+            ],
+            "field": {
+                "Kpar": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "SauvSource": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "ImagesCS": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "ImagesWeb": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "PhotosCS": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "PhotoWeb": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "TSource": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "TUser": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "TBDD": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "TPasse": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "TProprio": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "TAcces": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "TServer": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "RSource": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "RUser": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "RBDD": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "RPasse": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "RProprio": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "RAcces": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "RServer": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kpar"
+        },
+        "param_droits": {
+            "fields": [
+                "Kparam",
+                "Kage",
+                "Param",
+                "Value"
+            ],
+            "field": {
+                "Kparam": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "Param": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "Value": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                }
+            },
+            "key": "Kparam"
+        },
+        "passeport": {
+            "fields": [
+                "Id",
+                "IdHabilitation",
+                "IdAgent",
+                "IdContact",
+                "Login",
+                "Password",
+                "UID",
+                "Actif",
+                "DateDerCon"
+            ],
+            "field": {
+                "Id": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "IdHabilitation": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "IdAgent": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "IdContact": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Login": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "tinytext"
+                },
+                "Password": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "tinytext"
+                },
+                "UID": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "tinytext"
+                },
+                "Actif": {
+                    "required": false,
+                    "type": "",
+                    "dbtype": "bit(1)"
+                },
+                "DateDerCon": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                }
+            },
+            "key": "Id"
+        },
+        "position": {
+            "fields": [
+                "Kpst",
+                "IDPos",
+                "Position",
+                "Description",
+                "Ordre",
+                "Verrou",
+                "Archive"
+            ],
+            "field": {
+                "Kpst": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "IDPos": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(10)"
+                },
+                "Position": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "Description": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "Ordre": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "smallint(6)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                },
+                "Archive": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                }
+            },
+            "key": "Kpst"
+        },
+        "postal": {
+            "fields": [
+                "Id",
+                "IdDepartement",
+                "IdZone",
+                "Code",
+                "Ville"
+            ],
+            "field": {
+                "Id": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "IdDepartement": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "IdZone": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Code": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "Ville": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "tinytext"
+                }
+            },
+            "key": "Id"
+        },
+        "recapitulatif": {
+            "fields": [
+                "id_recapitulatif",
+                "Kage",
+                "Date",
+                "Session",
+                "Nom_organisme",
+                "type_formation",
+                "upload"
+            ],
+            "field": {
+                "id_recapitulatif": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "Date": {
+                    "required": true,
+                    "type": "date",
+                    "dbtype": "date"
+                },
+                "Session": {
+                    "required": true,
+                    "type": "char",
+                    "dbtype": "varchar(10)"
+                },
+                "Nom_organisme": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "type_formation": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "upload": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                }
+            },
+            "key": "id_recapitulatif"
+        },
+        "rolconsult": {
+            "fields": [
+                "kRolConsult",
+                "krol",
+                "KConsult"
+            ],
+            "field": {
+                "kRolConsult": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "krol": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "KConsult": {
+                    "required": true,
+                    "join": "droit_consult.KConsult"
+                }
+            },
+            "key": "kRolConsult"
+        },
+        "roles": {
+            "fields": [
+                "Krol",
+                "CodRol",
+                "LibRolc",
+                "LibRol",
+                "Verrou"
+            ],
+            "field": {
+                "Krol": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "CodRol": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "LibRolc": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibRol": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(150)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Krol"
+        },
+        "sauvage": {
+            "fields": [
+                "Ksav",
+                "Kuse",
+                "LibSavc",
+                "LibSav",
+                "DatSav",
+                "Troncage",
+                "Verrou"
+            ],
+            "field": {
+                "Ksav": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kuse": {
+                    "required": true,
+                    "join": "users.Kuse"
+                },
+                "LibSavc": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibSav": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "DatSav": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "Troncage": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "smallint(6)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Ksav"
+        },
+        "services": {
+            "fields": [
+                "Kser",
+                "Ksub",
+                "Kadr",
+                "LibSerC",
+                "LibSer",
+                "Telephone",
+                "Fax",
+                "Obs",
+                "CodHie",
+                "Chemin",
+                "Archive",
+                "Verrou",
+                "Code"
+            ],
+            "field": {
+                "Kser": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Ksub": {
+                    "required": true,
+                    "join": "subdis.Ksub"
+                },
+                "Kadr": {
+                    "required": true,
+                    "join": "adresses.Kadr"
+                },
+                "LibSerC": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibSer": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Telephone": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Fax": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Obs": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "CodHie": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Chemin": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "Archive": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                },
+                "Code": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(10)"
+                }
+            },
+            "key": "Kser"
+        },
+        "situadm": {
+            "fields": [
+                "idsituadm",
+                "kage",
+                "ECH",
+                "INM",
+                "DAT"
+            ],
+            "field": {
+                "idsituadm": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "ECH": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                },
+                "INM": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(45)"
+                },
+                "DAT": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                }
+            },
+            "key": "idsituadm"
+        },
+        "societes": {
+            "fields": [
+                "Ksoc",
+                "Kfam",
+                "Kpos",
+                "LibSocc",
+                "LibSoc",
+                "Adresse",
+                "Web",
+                "Mel",
+                "Telephone",
+                "Fax",
+                "Verrou"
+            ],
+            "field": {
+                "Ksoc": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kfam": {
+                    "required": true,
+                    "join": "familles.Kfam"
+                },
+                "Kpos": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "LibSocc": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibSoc": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "Adresse": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "Web": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "Mel": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "Telephone": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Fax": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Ksoc"
+        },
+        "srhmel": {
+            "fields": [
+                "Ksrh",
+                "Kage",
+                "Melanie",
+                "SRHVac",
+                "SRH",
+                "Verrou"
+            ],
+            "field": {
+                "Ksrh": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "Melanie": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "SRHVac": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "SRH": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Ksrh"
+        },
+        "subdis": {
+            "fields": [
+                "Ksub",
+                "Kuni",
+                "Kadr",
+                "LibSubC",
+                "LibSub",
+                "HorSect",
+                "Code",
+                "Telephone",
+                "Fax",
+                "Obs",
+                "CodHie",
+                "Chemin",
+                "Archive",
+                "subGESPER"
+            ],
+            "field": {
+                "Ksub": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kuni": {
+                    "required": true,
+                    "join": "unites.Kuni"
+                },
+                "Kadr": {
+                    "required": true,
+                    "join": "adresses.Kadr"
+                },
+                "LibSubC": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibSub": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "HorSect": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "char(10)"
+                },
+                "Code": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "char(10)"
+                },
+                "Telephone": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Fax": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Obs": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "CodHie": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Chemin": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "Archive": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "subGESPER": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(4)"
+                }
+            },
+            "key": "Ksub"
+        },
+        "trombi": {
+            "fields": [
+				"Id",
+                "kage",
+                "trombi"
+            ],
+            "field": {
+				"Id": {
+					"required": true,
+					"type": "counter"	
+				},
+                "kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "trombi": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                }
+            },
+            "key": "Id"
+        },
+        "type_formation": {
+            "fields": [
+                "id_formation",
+                "Libelle",
+                "frequence"
+            ],
+            "field": {
+                "id_formation": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Libelle": {
+                    "required": true,
+                    "type": "char",
+                    "dbtype": "varchar(100)"
+                },
+                "frequence": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                }
+            },
+            "key": "id_formation"
+        },
+        "unites": {
+            "fields": [
+                "Kuni",
+                "Kadr",
+                "LibUnic",
+                "LibUni",
+                "Telephone",
+                "Fax",
+                "Obs",
+                "CodHie",
+                "Chemin",
+                "Archive",
+                "uniGESPER",
+                "Code",
+                "Kets"
+            ],
+            "field": {
+                "Kuni": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kadr": {
+                    "required": true,
+                    "join": "adresses.Kadr"
+                },
+                "LibUnic": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(50)"
+                },
+                "LibUni": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Telephone": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Fax": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(20)"
+                },
+                "Obs": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "CodHie": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Chemin": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "Archive": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "uniGESPER": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(8)"
+                },
+                "Code": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(10)"
+                },
+                "Kets": {
+                    "required": true,
+                    "join": "etablissements.Kets"
+                }
+            },
+            "key": "Kuni"
+        },
+        "useannex": {
+            "fields": [
+                "Kuseann",
+                "Kuse",
+                "Kann",
+                "Verrou"
+            ],
+            "field": {
+                "Kuseann": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kuse": {
+                    "required": true,
+                    "join": "users.Kuse"
+                },
+                "Kann": {
+                    "required": true,
+                    "join": "annexes.Kann"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kuseann"
+        },
+        "users": {
+            "fields": [
+                "Kuse",
+                "Kage",
+                "IdPasseport",
+                "DatDerCon",
+                "Activite",
+                "Admin",
+                "Srh",
+                "Unite",
+                "SPMG",
+                "Verrou",
+                "Consult",
+                "CFA"
+            ],
+            "field": {
+                "Kuse": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "IdPasseport": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "DatDerCon": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "Activite": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Admin": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Srh": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Unite": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "SPMG": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                },
+                "Consult": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "CFA": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                }
+            },
+            "key": "Kuse"
+        },
+        "vehassu": {
+            "fields": [
+                "Kvas",
+                "NomAss",
+                "Verrou"
+            ],
+            "field": {
+                "Kvas": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "NomAss": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kvas"
+        },
+        "vehmark": {
+            "fields": [
+                "Kvmk",
+                "Marque",
+                "Verrou"
+            ],
+            "field": {
+                "Kvmk": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Marque": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kvmk"
+        },
+        "vehmod": {
+            "fields": [
+                "Kvmd",
+                "Kvmk",
+                "Modele",
+                "CV",
+                "Verrou"
+            ],
+            "field": {
+                "Kvmd": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "Kvmk": {
+                    "required": true,
+                    "join": "vehmark.Kvmk"
+                },
+                "Modele": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(250)"
+                },
+                "CV": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kvmd"
+        },
+        "versions": {
+            "fields": [
+                "Kver",
+                "LibVer",
+                "DatVer",
+                "Numero",
+                "Obs",
+                "Activite",
+                "Verrou"
+            ],
+            "field": {
+                "Kver": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "LibVer": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(200)"
+                },
+                "DatVer": {
+                    "required": false,
+                    "type": "datetime",
+                    "dbtype": "datetime"
+                },
+                "Numero": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(10)"
+                },
+                "Obs": {
+                    "required": false,
+                    "type": "text",
+                    "dbtype": "longtext"
+                },
+                "Activite": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "tinyint(4)"
+                },
+                "Verrou": {
+                    "required": false,
+                    "type": "blob",
+                    "dbtype": "tinyblob"
+                }
+            },
+            "key": "Kver"
+        },
+        "vm": {
+            "fields": [
+                "kvm",
+                "kage",
+                "nature_visite",
+                "date_visite",
+                "heure_visite",
+                "resultats",
+                "commentaires"
+            ],
+            "field": {
+                "kvm": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "kage": {
+                    "required": true,
+                    "join": "agents.Kage"
+                },
+                "nature_visite": {
+                    "required": true,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "date_visite": {
+                    "required": false,
+                    "type": "date",
+                    "dbtype": "date"
+                },
+                "heure_visite": {
+                    "required": false,
+                    "type": "time",
+                    "dbtype": "time"
+                },
+                "resultats": {
+                    "required": false,
+                    "type": "int",
+                    "dbtype": "int(11)"
+                },
+                "commentaires": {
+                    "required": false,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                }
+            },
+            "key": "kvm"
+        },
+        "vm_natures": {
+            "fields": [
+                "kvm_natures",
+                "nature"
+            ],
+            "field": {
+                "kvm_natures": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "nature": {
+                    "required": true,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                }
+            },
+            "key": "kvm_natures"
+        },
+        "vm_resultats": {
+            "fields": [
+                "kvm_resultats",
+                "resultat"
+            ],
+            "field": {
+                "kvm_resultats": {
+                    "required": true,
+                    "type": "counter"
+                },
+                "resultat": {
+                    "required": true,
+                    "type": "char",
+                    "dbtype": "varchar(255)"
+                }
+            },
+            "key": "kvm_resultats"
+        }
+    }
+}
